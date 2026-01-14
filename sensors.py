@@ -1,29 +1,21 @@
+n = int(input("enter the number of readings: "))
+readings = eval(input("enter the readings: "))
 
+l2 = []
+sum_list = []
 
-n=int(input("enter the no of readings "))
-readings=eval(input("enter the readings of values"))
-k=int(input("enter the times of reading"))
-l1=[]
-l2=[]
-i=0
+for i in range(n - 2):
+    group = []
+    for j in range(i, i+3):
+        group.append(readings[j])
+    l2.append(group)
 
-for i in range(2):
-  i=0
-  while i<=2:
-    l1.append(readings[i]) 
-    list(l1)
-    i=i+1
-  i=i+1
-l2.append(l1)
-sum=0
-print(l2)
+for grp in l2:
+    s = 0
+    for num in grp:
+        s += num
+    sum_list.append(s)
 
-for i in l2:
-  for j in i:
-    sum=sum+j
-
-list_of_sum=list(sum)
-print(f'the highest toral signal is{max(list_of_sum)} ')
-
-
-
+print("Groups of 3:", l2)
+print("Sums:", sum_list)
+print("Highest total signal:", max(sum_list))
